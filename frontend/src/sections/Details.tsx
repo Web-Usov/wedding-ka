@@ -4,6 +4,7 @@ import { RoseIcon } from '../components/icons/RoseIcon';
 import { GiftIcon } from '../components/icons/GiftIcon';
 import { HandsIcon } from '../components/icons/HandsIcon';
 import { FireworkIcon } from '../components/icons/FireworkIcon';
+import { MicrophoneIcon } from '../components/icons/MicrophoneIcon';
 import { content } from '../data/content';
 
 const iconMap = {
@@ -11,6 +12,7 @@ const iconMap = {
   gift: GiftIcon,
   hands: HandsIcon,
   firework: FireworkIcon,
+  microphone: MicrophoneIcon,
 };
 
 export function Details() {

@@ -2,6 +2,29 @@ import { ScrollReveal } from '../components/layout/ScrollReveal';
 import { SectionTitle } from '../components/ui/SectionTitle';
 import { content } from '../data/content';
 
+const pairs = [
+  {
+    male: { src: '/assets/images/male-1.png', alt: 'Мужской образ 1' },
+    female: { src: '/assets/images/female-1.png', alt: 'Женский образ 1' },
+  },
+  {
+    male: { src: '/assets/images/male-2.png', alt: 'Мужской образ 2' },
+    female: { src: '/assets/images/female-2.png', alt: 'Женский образ 2' },
+  },
+  {
+    male: { src: '/assets/images/male-3.png', alt: 'Мужской образ 3' },
+    female: { src: '/assets/images/female-3.png', alt: 'Женский образ 3' },
+  },
+  {
+    male: { src: '/assets/images/male-4.png', alt: 'Мужской образ 4' },
+    female: { src: '/assets/images/female-4.png', alt: 'Женский образ 4' },
+  },
+  {
+    male: { src: '/assets/images/male-5.png', alt: 'Мужской образ 5' },
+    female: { src: '/assets/images/female-5.png', alt: 'Женский образ 5' },
+  },
+];
+
 export function DressCode() {
   return (
     <section
@@ -20,11 +43,11 @@ export function DressCode() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <div className="flex gap-4 md:gap-6 mb-12">
+          <div className="flex gap-3 md:gap-4 mb-12">
             {content.dressCode.colors.map((color) => (
               <div key={color.name} className="flex flex-col items-center gap-2">
                 <div
-                  className={`w-12 h-12 md:w-14 md:h-14 rounded-full ${color.border ? 'border border-gray-300' : ''}`}
+                  className="w-12 h-12 md:w-14 md:h-14 rounded-full"
                   style={{ backgroundColor: color.value }}
                 />
                 <span className="font-sans text-xs text-medium-gray">{color.name}</span>
@@ -34,25 +57,30 @@ export function DressCode() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.3}>
-          <div className="relative flex justify-center items-center w-full max-w-xs">
-            {/* Left photo (male) */}
-            <div className="w-36 h-52 md:w-44 md:h-64 rounded-3xl overflow-hidden shadow-lg transform -translate-x-4 translate-y-2">
-              <img
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&q=80"
-                alt="Мужской образ"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            {/* Right photo (female) */}
-            <div className="w-36 h-52 md:w-44 md:h-64 rounded-3xl overflow-hidden shadow-lg transform translate-x-4 -translate-y-2 z-10">
-              <img
-                src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&q=80"
-                alt="Женский образ"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
+          <div className="flex flex-col gap-4 md:gap-6 w-full max-w-sm mx-auto">
+            {pairs.map((pair, index) => (
+              <div
+                key={index}
+                className="grid grid-cols-2 gap-4 md:gap-6"
+              >
+                <div className="aspect-[2/3] rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src={pair.male.src}
+                    alt={pair.male.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="aspect-[2/3] rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src={pair.female.src}
+                    alt={pair.female.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </ScrollReveal>
       </div>

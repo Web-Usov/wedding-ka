@@ -5,9 +5,6 @@ import { content, GOOGLE_SCRIPT_URL } from '../data/content';
 interface FormData {
   name: string;
   phone: string;
-  allergy: string;
-  plusOne: string;
-  vegetarian: string;
   attendance: string;
   drinks: string[];
 }
@@ -15,9 +12,6 @@ interface FormData {
 const initialForm: FormData = {
   name: '',
   phone: '',
-  allergy: '',
-  plusOne: '',
-  vegetarian: content.rsvp.form.vegetarianOptions[0],
   attendance: content.rsvp.form.attendanceOptions[0],
   drinks: [],
 };
@@ -90,7 +84,7 @@ export function Rsvp() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            'url(https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=1200&q=80)',
+            'url(/assets/images/rsvp-bg.jpg)',
         }}
       />
 
@@ -149,42 +143,6 @@ export function Rsvp() {
                 {errors.phone && (
                   <p className="text-red-400 text-xs mt-1 ml-1">{errors.phone}</p>
                 )}
-              </div>
-
-              {/* Allergy */}
-              <input
-                type="text"
-                placeholder={content.rsvp.form.allergyPlaceholder}
-                value={form.allergy}
-                onChange={(e) => handleChange('allergy', e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white font-sans text-sm text-dark placeholder:text-medium-gray outline-none focus:ring-2 focus:ring-dark/20"
-              />
-
-              {/* Plus One */}
-              <input
-                type="text"
-                placeholder={content.rsvp.form.plusOnePlaceholder}
-                value={form.plusOne}
-                onChange={(e) => handleChange('plusOne', e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white font-sans text-sm text-dark placeholder:text-medium-gray outline-none focus:ring-2 focus:ring-dark/20"
-              />
-
-              {/* Vegetarian */}
-              <div className="flex flex-col gap-2">
-                <label className="font-sans text-sm text-white">
-                  {content.rsvp.form.vegetarianLabel}
-                </label>
-                <select
-                  value={form.vegetarian}
-                  onChange={(e) => handleChange('vegetarian', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white font-sans text-sm text-dark outline-none focus:ring-2 focus:ring-dark/20"
-                >
-                  {content.rsvp.form.vegetarianOptions.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
               </div>
 
               {/* Attendance */}

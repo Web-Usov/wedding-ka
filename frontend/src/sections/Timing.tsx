@@ -13,7 +13,7 @@ export function Timing() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            'url(https://images.unsplash.com/photo-1567225591450-06036b3392a6?w=1200&q=80)',
+            'url(/assets/images/timing-bg.jpg)',
         }}
       />
 
